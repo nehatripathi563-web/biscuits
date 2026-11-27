@@ -1,6 +1,527 @@
 
-<h1> this is a cookies product like toast,cream,jelly etc.      </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Britannia Biscuits | Taste of Happiness</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<h1> it can be eaten as a snacks.</h1>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fffaf1;
+    color: #3d211b;
+}
+
+header {
+    background: #b8172d;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #ffd36b;
+}
+
+.hero {
+    min-height: 580px;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: linear-gradient(120deg, #fff0cf, #ffe2c1);
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 65px;
+    line-height: 1.15;
+    color: #a7192c;
+}
+
+.hero-content p {
+    margin: 22px 0;
+    font-size: 17px;
+    color: #674c40;
+}
+
+.btn {
+    display: inline-block;
+    background: #b8172d;
+    color: white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #7f1021;
+    transform: translateY(-4px);
+}
+
+.hero img {
+    width: 45%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px #7d3a2530;
+}
+
+.section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #a7192c;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #806b5e;
+    margin-bottom: 40px;
+}
+
+.category-container,
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.category {
+    padding: 30px 15px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 7px 25px #6b341310;
+    transition: .3s;
+}
+
+.category:hover {
+    transform: translateY(-8px);
+}
+
+.category .icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.category h3 {
+    color: #a7192c;
+    margin-bottom: 8px;
+}
+
+.products {
+    background: #fff0d8;
+}
+
+.product-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 7px 25px #6b341315;
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    color: #a7192c;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #806b5e;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-info button {
+    background: #b8172d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    text-align: left;
+}
+
+.about img {
+    width: 45%;
+    border-radius: 25px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin: 15px 0 25px;
+    color: #806b5e;
+}
+
+.offer {
+    background: #a7192c;
+    color: white;
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.offer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.offer p {
+    margin-bottom: 25px;
+}
+
+.offer .btn {
+    background: #ffd36b;
+    color: #741522;
+}
+
+footer {
+    background: #321b19;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+footer p {
+    color: #e5c9bc;
+    font-size: 14px;
+}
+
+@media(max-width: 900px) {
+    .category-container,
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero img,
+    .about img {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .category-container,
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">🍪 BRITANNIA</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <h1>Every Bite Has A Story!</h1>
+
+        <p>
+            Enjoy the delicious world of Britannia.
+            From crunchy biscuits to creamy treats,
+            every bite brings happiness to your day.
+        </p>
+
+        <a href="#products" class="btn">Explore Products →</a>
+    </div>
+
+    <img
+    src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900"
+    alt="Delicious biscuits">
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+
+    <h2>Our Categories</h2>
+
+    <p class="subtitle">
+        Discover your favourite treats!
+    </p>
+
+    <div class="category-container">
+
+        <div class="category">
+            <div class="icon">🍓</div>
+            <h3>Jelly Biscuits</h3>
+            <p>Fruity and delicious treats.</p>
+        </div>
+
+        <div class="category">
+            <div class="icon">🍪</div>
+            <h3>Cream Biscuits</h3>
+            <p>Crunchy biscuits with creamy filling.</p>
+        </div>
+
+        <div class="category">
+            <div class="icon">🍞</div>
+            <h3>Toast & Rusk</h3>
+            <p>Perfect companions for your tea.</p>
+        </div>
+
+        <div class="category">
+            <div class="icon">🍫</div>
+            <h3>Chocolate</h3>
+            <p>Chocolate-inspired sweet delights.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+
+    <h2>Our Delicious Products</h2>
+
+    <p class="subtitle">
+        Taste happiness with every bite.
+    </p>
+
+    <div class="product-container">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600">
+            <div class="product-info">
+                <h3>Jelly Biscuits</h3>
+                <p>Sweet fruity flavour with a crunchy bite.</p>
+                <button>Explore More</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600">
+            <div class="product-info">
+                <h3>Cream Biscuits</h3>
+                <p>Delicious cream between crispy biscuits.</p>
+                <button>Explore More</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600">
+            <div class="product-info">
+                <h3>Golden Toast</h3>
+                <p>Golden and crispy tea-time snacks.</p>
+                <button>Explore More</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600">
+            <div class="product-info">
+                <h3>Chocolate Cookies</h3>
+                <p>A sweet chocolate-inspired treat.</p>
+                <button>Explore More</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+
+    <img
+    src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=800"
+    alt="Cookies and sweet treats">
+
+    <div class="about-text">
+        <h2>About Britannia</h2>
+
+        <p>
+            Britannia brings people together through
+            delicious bakery treats and biscuits.
+
+            Whether it is a family gathering, a tea break
+            or a special celebration, enjoy the little
+            moments with your favourite treats.
+        </p>
+
+        <a href="#categories" class="btn">Discover More</a>
+    </div>
+</section>
+
+<!-- OFFER BANNER -->
+<section class="offer">
+    <h2>Happiness Is Just One Bite Away!</h2>
+
+    <p>
+        Make your everyday moments more delicious
+        with Britannia biscuits.
+    </p>
+
+    <a href="#products" class="btn">Explore Our Collection</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>🍪 BRITANNIA</h2>
+
+    <p>
+        Goodness in Every Bite.
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 Britannia Biscuits Website Concept.
+        All Rights Reserved.
+    </p>
+</footer>
+
+<!-- JAVASCRIPT + JQUERY -->
+<script>
+
+$(document).ready(function() {
+
+    // Smooth scrolling
+    $('nav a, .btn').click(function(e) {
+
+        var target = $(this).attr('href');
+
+        if(target && target.startsWith('#')) {
+            e.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - 75
+            }, 700);
+        }
+
+    });
+
+    // Product button interaction
+    $('.product-info button').click(function() {
+
+        var product = $(this)
+            .closest('.product-card')
+            .find('h3')
+            .text();
+
+        alert("You selected " + product + "! 🍪");
+
+    });
+
+    // Category hover animation
+    $('.category').hover(
+        function() {
+            $(this).css('background', '#fff4df');
+        },
+        function() {
+            $(this).css('background', '#ffffff');
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
